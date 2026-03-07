@@ -28,6 +28,9 @@ const btnOpen = document.getElementById("btnOpen");
 const btnClosed = document.getElementById("btnClosed");
 
 
+// search button
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
 
 
 
@@ -59,6 +62,36 @@ function hideLoading(){
 }
 
 
+// search card
+function searchCard(arrays){
+
+
+    // for search bar
+    let searchArrays = [];
+
+    const value = searchInput.value.toLowerCase();
+    console.log(value);
+    // console.log(arrays);
+    arrays.forEach(array => {
+        // console.log(array.title);
+
+        const lowerTitle = array.title.toLowerCase();
+        // console.log(lowerTitle);
+        if(lowerTitle.includes(value)){
+            console.log(array);
+            searchArrays.push(array);
+        }
+    })
+
+    // update total issues
+    totalIssues.innerText = searchArrays.length;
+
+    console.log(searchArrays);
+    displayAllCards(searchArrays);
+
+}
+
+
 // active button
 function allBtnActive(){
     btnAll.classList.remove("btn-outline");
@@ -75,8 +108,8 @@ function allBtnActive(){
 
 function openBtnActive(){
 
-    // got add showloading
-    // showLoading();
+    // got add show loading
+    showLoading();
 
     btnOpen.classList.remove("btn-outline");
     btnOpen.classList.add("btn-primary");
@@ -90,6 +123,8 @@ function openBtnActive(){
 
 
     displayAllCards(openBtnArray);
+
+    hideLoading();
     
 }
 

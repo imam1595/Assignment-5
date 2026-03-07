@@ -67,8 +67,8 @@
     
     <!-- main website -->
     <main id="mainSection" class="">
-        <header>
-            <nav>
+        <header class="sticky top-0 z-50">
+            <nav class="">
                 <div class="navbar bg-base-100 shadow-sm">
                     <div class="flex-1">
                         <div class="flex gap-4 items-center">
@@ -77,8 +77,8 @@
                         </div>
                     </div>
                     <div class="flex gap-2">
-                        <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                        <button class="btn btn-primary w-[120px]">Search</button>
+                        <input id="searchInput" type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                        <button id="searchBtn" onclick="searchCard(allBtnArray)" class="btn btn-primary w-[120px]">Search</button>
                     </div>
                 </div>
             </nav>
@@ -86,7 +86,7 @@
 
         <section class="w-[80%] mx-auto mt-20">
 
-            <div id="allBtnContainer" class="flex gap-3 bg-base-200 border-base-300 border rounded-box p-6">
+            <div id="allBtnContainer" class="flex gap-3 sticky top-[70px] z-40 bg-base-200 border-base-300 border rounded-box p-6">
                 <button id="btnAll" onclick="allBtnActive()" class="btn btn-primary w-[120px]">All</button>
                 <button id="btnOpen" onclick="openBtnActive()" class="btn btn-outline w-[120px]">Open</button>
                 <button id="btnClosed" onclick="closedBtnActive()" class="btn btn-outline w-[120px]">Closed</button>
