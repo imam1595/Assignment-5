@@ -18,6 +18,10 @@ const cardContainer = document.getElementById("cardContainer");
 // loading spinner
 const loadingSpinner = document.getElementById("loadingSpinner");
 
+// getting total issues
+const totalIssues = document.getElementById("totalIssues");
+
+
 // button
 const btnAll = document.getElementById("btnAll");
 const btnOpen = document.getElementById("btnOpen");
@@ -64,6 +68,9 @@ function allBtnActive(){
     btnOpen.classList.remove("btn-primary");
     btnClosed.classList.remove("btn-primary");
 
+    // update total issues
+    totalIssues.innerText = allBtnArray.length;
+
     displayAllCards(allBtnArray);
 }
 
@@ -78,6 +85,11 @@ function openBtnActive(){
     btnAll.classList.remove("btn-primary");
     btnClosed.classList.remove("btn-primary");
 
+    
+    // update total issues
+    totalIssues.innerText = openBtnArray.length;
+
+
     displayAllCards(openBtnArray);
     
 }
@@ -88,6 +100,9 @@ function closedBtnActive(){
 
     btnOpen.classList.remove("btn-primary");
     btnAll.classList.remove("btn-primary");
+
+    // update total issues
+    totalIssues.innerText = closedBtnArray.length;
 
     displayAllCards(closedBtnArray);
 }
@@ -124,9 +139,9 @@ async function loadAllCards() {
 
         
     });
-    console.log(allBtnArray.length);
-    console.log(openBtnArray.length);
-    console.log(closedBtnArray.length);
+    // console.log(allBtnArray.length);
+    // console.log(openBtnArray.length);
+    // console.log(closedBtnArray.length);
 
     // console.log(data.status);
 
