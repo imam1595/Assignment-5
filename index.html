@@ -16,8 +16,8 @@
 <body>
 
     <!-- login form -->
-    <div id="logInDiv" class="w-[400px] mx-auto bg-green-400 mt-40">
-        <div class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+     <!-- <div id="logInDiv" class="w-[500px] mx-auto mt-40">
+        <div class="fieldset bg-base-200 border-base-300  rounded-box w-full border p-4">
         
             <div class="flex flex-col gap-3 justify-center items-center">
                 <img src="./assets/github-logo.png" alt="github-logo" class="w-[80px]">
@@ -26,24 +26,112 @@
             </div>
 
             <label class="label">Username</label>
-            <input id="userName" type="text" class="input" placeholder="Enter Username" />
-            <p>Default: admin</p>
+            <input id="userName" type="text" class="input input-bordered w-full" placeholder="Enter Username"/>
+            <p class="text-[#4A00FF]">Default: admin</p>
 
             <label class="label">Password</label>
-            <input id="password" type="password" class="input" placeholder="Password" />
-            <p>Default: admin123</p>
+            <input id="password" type="password" class="input input-bordered w-full" placeholder="Password" />
+            <p class="text-[#4A00FF]">Default: admin123</p>
 
-            <button id="signInBtn" onclick="signIn()" class="btn btn-neutral mt-4">Sign in</button>
+            
+            <div class="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
+                <legend class="fieldset-legend">Login options</legend>
+                <label class="label">
+                    <input type="checkbox" checked="checked" class="checkbox" />
+                    Remember me
+                </label>
+            </div>
+
+
+            <button id="signInBtn" onclick="signIn()" class="btn btn-primary mt-4">Sign in</button>
+
+            <br>
+            <br>
+
+            <hr>
+
+            <div class="text-center">
+                <p>OR</p>
+                <p class="">Demo Credentials</p>
+                <br>
+                <p class="font-bold">Username : admin</p>
+                <p class="font-bold">Password : admin123</p>
+            </div>
         </div>
-    </div>
+
+        
+    </div>  -->
+
+
+
     
     <!-- main website -->
-    <main id="mainSection" class="hidden">
+    <main id="mainSection" class="">
         <header>
             <nav>
-                <h2 class="font-bold text-2xl text-green-400 text-center">hi</h2>
+                <div class="navbar bg-base-100 shadow-sm">
+                    <div class="flex-1">
+                        <div class="flex gap-4 items-center">
+                            <img src="./assets/github-logo.png" alt="github-logo" class="w-[40px]">
+                            <p class="font-bold text-xl">GitHub Issues Tracker</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                        <button class="btn btn-primary w-[120px]">Search</button>
+                    </div>
+                </div>
             </nav>
         </header>
+
+        <section class="w-[80%] mx-auto mt-20">
+
+            <div id="allBtnContainer" class="flex gap-3 bg-base-200 border-base-300 border rounded-box p-6">
+                <button id="btnAll" onclick="allBtnActive()" class="btn btn-primary w-[120px]">All</button>
+                <button id="btnOpen" onclick="openBtnActive()" class="btn btn-outline w-[120px]">Open</button>
+                <button id="btnClosed" onclick="closedBtnActive()" class="btn btn-outline w-[120px]">Closed</button>
+            </div>
+
+            <div class="bg-base-200 border-base-300 border rounded-box p-6 mt-10">
+
+                <div class="flex justify-between">
+
+                    <div class="flex gap-2">
+
+                        <img src="./assets/Aperture.png" alt="Aperture" class="w-[50px]">
+
+                        <div>
+                            <p class="font-bold text-2xl"><span>50</span> Issues</p>
+                            <p>Track and manage your project issues</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-10">
+                        <div class="flex items-center gap-3">
+                            <p class="w-[12px] h-[12px] bg-[#00a96e] rounded-full"></p>
+                            <p>Open</p>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <p class="w-[12px] h-[12px] bg-[#a855f7] rounded-full"></p>
+                            <p>Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="cardContainer" class="grid grid-cols-4 gap-4 p-6 ">
+
+                    <!-- dynamically all cards show -->
+                </div>
+
+                <!-- loading spinner -->
+                <div id="loadingSpinner" class="h-[60vh] hidden justify-center items-center">
+                    <span class="loading loading-bars loading-xl"></span>
+                </div>
+
+            </div>
+        </section>
     </main>
 
 
