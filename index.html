@@ -14,12 +14,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- login form -->
+    <div id="logInDiv" class="w-[400px] mx-auto bg-green-400 mt-40">
+        <div class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+        
+            <div class="flex flex-col gap-3 justify-center items-center">
+                <img src="./assets/github-logo.png" alt="github-logo" class="w-[80px]">
+                <h1 class="font-bold text-xl">GitHub Issues Tracker</h1>
+                <p>Sign in to manage your issues</p>
+            </div>
+
+            <label class="label">Username</label>
+            <input id="userName" type="text" class="input" placeholder="Enter Username" />
+            <p>Default: admin</p>
+
+            <label class="label">Password</label>
+            <input id="password" type="password" class="input" placeholder="Password" />
+            <p>Default: admin123</p>
+
+            <button id="signInBtn" onclick="signIn()" class="btn btn-neutral mt-4">Sign in</button>
+        </div>
+    </div>
     
-    <header>
-        <nav>
-            <h2 class="font-bold text-2xl text-green-400 text-center">hi</h2>
-        </nav>
-    </header>
+    <!-- main website -->
+    <main id="mainSection" class="hidden">
+        <header>
+            <nav>
+                <h2 class="font-bold text-2xl text-green-400 text-center">hi</h2>
+            </nav>
+        </header>
+    </main>
 
 
     <script src="script.js"></script>
