@@ -128,6 +128,8 @@ async function loadAllCards() {
         // console.log(data.status);
 
         if(data.status == "open"){
+
+
             openBtnArray.push(data);
 
             allBtnArray.push(data);
@@ -162,7 +164,16 @@ function displayAllCards(cards){
 
 
         const divCard = document.createElement("div");
-        divCard.className = "card bg-base-100 shadow-sm";
+        // divCard.className = "card bg-base-100 shadow-sm";
+
+        if(card.status == "open"){
+
+            divCard.className = "card bg-base-100 shadow-sm border-t-6 border-t-[#00a96e]";
+        }else{
+            
+            divCard.className = "card bg-base-100 shadow-sm border-t-6 border-t-[#a855f7]"; 
+        }
+
         divCard.innerHTML = `
             <div class="card-body">
 
