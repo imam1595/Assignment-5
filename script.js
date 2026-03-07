@@ -31,7 +31,6 @@ const btnClosed = document.getElementById("btnClosed");
 
 
 
-
 // sign in function
 function signIn(){
     const userNameValue = userName.value;
@@ -109,6 +108,7 @@ function closedBtnActive(){
 
 
 
+// get cards api
 async function loadAllCards() {
 
     showLoading();
@@ -153,6 +153,9 @@ async function loadAllCards() {
     displayAllCards(allBtnArray);
 }
 
+
+
+// show cards
 function displayAllCards(cards){
     // console.log(cards);
     
@@ -170,16 +173,43 @@ function displayAllCards(cards){
 
             divCard.className = "card bg-base-100 shadow-sm border-t-6 border-t-[#00a96e]";
         }else{
-            
+
             divCard.className = "card bg-base-100 shadow-sm border-t-6 border-t-[#a855f7]"; 
         }
+
+
+
+        // changing card status image
+        let cardStatusImg = "";
+
+        if(card.status == "open"){
+            cardStatusImg = "./assets/Open-Status.png";
+            
+        }else{
+            cardStatusImg = "./assets/Closed-Status.png";
+        }
+
+        // changing card priority color variable
+        let cardPriorityColor = "";
+
+        if(card.priority == "high"){
+            cardPriorityColor = "bg-[#EEBFBF]";
+        }
+        else if(card.priority == "medium"){
+            cardPriorityColor = "bg-[#FFF2BD]";
+        }
+        else{
+            cardPriorityColor = "bg-[#B4C6FA]";
+        }
+
+
 
         divCard.innerHTML = `
             <div class="card-body">
 
                 <div class="flex justify-between">
-                    <img src="./assets/Open-Status.png" alt="" class="w-[30px]">
-                    <span class="bg-green-300 p-2 rounded-full">${card.priority}</span>
+                    <img src="${cardStatusImg}" alt="" class="w-[30px]">
+                    <span class="${cardPriorityColor} p-2 rounded-full">${card.priority}</span>
                 </div>
 
                 <div>
@@ -209,6 +239,7 @@ function displayAllCards(cards){
 
             </div>
         `;
+
 
         cardContainer.appendChild(divCard);
     });
