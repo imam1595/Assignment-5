@@ -312,33 +312,33 @@ function displayCardDetail(datum){
     cardModalDetails.innerHTML = `
         <div class="w-[400px] h-[400px] space-y-5 card card-body  bg-base-100 shadow-sm">
 
-            <h1 class="font-bold text-2xl">Fix broken image uploads</h1>
+            <h1 class="font-bold text-2xl">${datum.title}</h1>
 
             <div class="flex gap-5 items-center">
-                <span class="bg-green-400 p-2 rounded-md text-white"><span>Open</span>ed</span>
-                <span>* Opened by <span>John_joe</span></span>
-                <span>* 22/02/2026</span>
+                <span class="bg-green-400 p-2 rounded-md text-white"><span>${datum.status}</span>ed</span>
+                <span>* Opened by <span>${datum.author}</span></span>
+                <span>* ${datum.createdAt}</span>
 
             </div>
 
             <div class="flex gap-7">
-                <span class="bg-[#ee6767] rounded-md p-1">BUG</span>
-                <span class="bg-[#FDE68A] rounded-md p-1">HELP WANTED</span>
+                <span class="bg-[#ee6767] rounded-md p-1">${datum.labels[0]}</span>
+                <span class="bg-[#FDE68A] rounded-md p-1">${datum.labels[1]}</span>
             </div>
 
-            <p class="line-clamp-2">The navigation menu doesn't collapse properly on  mobile devices. Need to fix the responsive behavior.</p>
+            <p class="line-clamp-2">${datum.description}</p>
         
 
             <div class="flex justify-between">
 
                 <div class="flex flex-col space-y-2">
                     <span class="font-bold text-lg">Assignee</span>
-                    <span>John_joe</span>
+                    <span>${datum.assignee}</span>
                 </div>
 
                 <div class="flex flex-col space-y-2">
                     <span class="font-bold text-lg">Priority</span>
-                    <span class="bg-[#ee6767] rounded-md p-1 text-center">HIGH</span>
+                    <span class="bg-[#ee6767] rounded-md p-1 text-center">${datum.priority}</span>
                 </div>
             </div>
         </div>
