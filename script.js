@@ -96,6 +96,9 @@ function searchCard(arrays){
 
 // active button
 function allBtnActive(){
+
+    showLoading();
+
     btnAll.classList.remove("btn-outline");
     btnAll.classList.add("btn-primary");
 
@@ -106,7 +109,11 @@ function allBtnActive(){
     totalIssues.innerText = allBtnArray.length;
 
     displayAllCards(allBtnArray);
+
+    hideLoading();
 }
+
+
 
 function openBtnActive(){
 
@@ -130,7 +137,12 @@ function openBtnActive(){
     
 }
 
+
+
 function closedBtnActive(){
+
+    hideLoading();
+    
     btnClosed.classList.remove("btn-outline");
     btnClosed.classList.add("btn-primary");
 
@@ -141,6 +153,9 @@ function closedBtnActive(){
     totalIssues.innerText = closedBtnArray.length;
 
     displayAllCards(closedBtnArray);
+
+
+    hideLoading();
 }
 
 
