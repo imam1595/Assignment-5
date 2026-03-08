@@ -138,7 +138,6 @@ function openBtnActive(){
 }
 
 
-
 function closedBtnActive(){
 
     hideLoading();
@@ -280,7 +279,7 @@ function displayAllCards(cards){
 
                 <div>
                     <div class="flex mb-5">
-                        <p><span>${card.id}</span> by <span>${card.author}</span></p>
+                        <p><span>#${card.id}</span> by <span>${card.author}</span></p>
                         <span>${card.createdAt}</span>
                     </div>
 
@@ -325,7 +324,7 @@ function displayCardDetail(datum){
     const myModal = document.getElementById("my_modal");
 
     cardModalDetails.innerHTML = `
-        <div class="w-[400px] h-[400px] space-y-5 card card-body  bg-base-100 shadow-sm">
+        <div class="w-[400px] h-[400px] space-y-5 card card-body">
 
             <h1 class="font-bold text-2xl">${datum.title}</h1>
 
