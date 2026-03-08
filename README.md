@@ -1,11 +1,11 @@
 
 1. To declared variables in javascript, var,let and const are used.
 
-var is a old way of declaring variables, which is not  block-scoped but can be redeclared and reassigned.
+ var is a old way of declaring variables, which is not  block-scoped but can be redeclared and reassigned.
 
-let is block-scoped, can be reassigned but can not be redeclared in the same scope.
+ let is block-scoped, can be reassigned but can not be redeclared in the same scope.
 
-const is used declaring constant variables. it is a block-scoped but can not be reassigned or redeclared.
+ const is used declaring constant variables. it is a block-scoped but can not be reassigned or redeclared.
 
 
 2. The spread operator(..) is a syntax to expand the elements of an array or object, It is used to copy or marge an array or object.

@@ -300,7 +300,7 @@ function displayAllCards(cards){
 
 async function loadingCardDetail(id) {
 
-    console.log(id);
+    // console.log(id);
 
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
 
