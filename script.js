@@ -34,6 +34,8 @@ const searchBtn = document.getElementById("searchBtn");
 
 
 
+
+
 // sign in function
 function signIn(){
     const userNameValue = userName.value;
@@ -190,6 +192,7 @@ async function loadAllCards() {
 
 
 
+
 // show cards
 function displayAllCards(cards){
     // console.log(cards);
@@ -240,20 +243,20 @@ function displayAllCards(cards){
 
 
         divCard.innerHTML = `
-            <div class="card-body">
+            <div class="card-body" onclick="loadingCardDetail(${card.id})">
 
-                <div class="flex justify-between">
+                <div class="flex justify-between mb-2">
                     <img src="${cardStatusImg}" alt="" class="w-[30px]">
                     <span class="${cardPriorityColor} p-2 rounded-full">${card.priority}</span>
                 </div>
 
-                <div>
+                <div class= "space-y-4">
                     <h2 class="card-title">${card.title}</h2>
                     <p class="line-clamp-2">${card.description}</p>
 
                     <div class="flex gap-5">
-                        <span class="bg-[#EF4444] rounded-md p-1">${card.labels[0]}</span>
-                        <span class="bg-[#FDE68A] rounded-md p-1">${card.labels[1]}</span>
+                        <span class="bg-[#f17575] rounded-md p-1">${card.labels[0]}</span>
+                        <span class="bg-[#e4d38f] rounded-md p-1">${card.labels[1]}</span>
                     </div>
                 </div>
                 
@@ -278,6 +281,75 @@ function displayAllCards(cards){
 
         cardContainer.appendChild(divCard);
     });
+}
+
+
+async function loadingCardDetail(id) {
+
+    console.log(id);
+
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+
+    const data = await res.json();
+
+    // console.log(data);
+    // console.log(data.data);
+
+    displayCardDetail(data.data);
+    
+}
+
+
+function displayCardDetail(datum){
+    console.log(datum);
+
+    // Display single card detail on click
+    const cardModalDetails = document.getElementById("cardModalDetails");
+
+    // pop up card
+    const myModal = document.getElementById("my_modal");
+
+    cardModalDetails.innerHTML = `
+        <div class="w-[400px] h-[400px] space-y-5 card card-body  bg-base-100 shadow-sm">
+
+            <h1 class="font-bold text-2xl">Fix broken image uploads</h1>
+
+            <div class="flex gap-5 items-center">
+                <span class="bg-green-400 p-2 rounded-md text-white"><span>Open</span>ed</span>
+                <span>* Opened by <span>John_joe</span></span>
+                <span>* 22/02/2026</span>
+
+            </div>
+
+            <div class="flex gap-7">
+                <span class="bg-[#ee6767] rounded-md p-1">BUG</span>
+                <span class="bg-[#FDE68A] rounded-md p-1">HELP WANTED</span>
+            </div>
+
+            <p class="line-clamp-2">The navigation menu doesn't collapse properly on  mobile devices. Need to fix the responsive behavior.</p>
+        
+
+            <div class="flex justify-between">
+
+                <div class="flex flex-col space-y-2">
+                    <span class="font-bold text-lg">Assignee</span>
+                    <span>John_joe</span>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <span class="font-bold text-lg">Priority</span>
+                    <span class="bg-[#ee6767] rounded-md p-1 text-center">HIGH</span>
+                </div>
+            </div>
+        </div>
+    `;
+
+    
+
+    myModal.showModal();
+
+
+    // my_modal.showModal();
 }
 
 
